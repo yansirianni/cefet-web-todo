@@ -8,9 +8,10 @@ let tarefas = [{
     realizada: true
 }];
 
-function insereTarefaNaPagina(tarefa){
+const containerEl = document.querySelector('#lista-tarefas');
+const incluirTarefaEl = document.querySelector('#incluir-nova-tarefa');
 
-    let containerEl = document.querySelector('#lista-tarefas');
+function insereTarefaNaPagina(tarefa){    
 
     let tarefaEl = document.createElement('li');
     
@@ -26,3 +27,20 @@ function insereTarefaNaPagina(tarefa){
 
 // chama a função para cada item do vetor
 tarefas.forEach(insereTarefaNaPagina);
+
+incluirTarefaEl.addEventListener('click', e => {
+    const nomeTarefaEl = document.querySelector('#nova-tarefa-nome');
+    const categoriaTarefaEl = document.querySelector('#nova-tarefa-categoria');
+
+    const tarefa = {
+        nome: nomeTarefaEl.value,
+        categoria: categoriaTarefaEl.value,
+        realizada: false
+    };
+
+    tarefas.push(tarefa);  
+    insereTarefaNaPagina(tarefa); 
+
+    nomeTarefaEl.value = '';
+    nomeTarefaEl.focus();
+});

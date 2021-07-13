@@ -12,6 +12,7 @@ let tarefas = [{
 const tarefasEl = document.querySelector('#lista-tarefas');
 const incluirTarefaEl = document.querySelector('#incluir-nova-tarefa');
 const filtroCategoriaEl = document.querySelector('#filtro-de-categoria');
+const novaTarefaNomeEl = document.querySelector('#nova-tarefa-nome');
 
 function insereTarefaNaPagina(tarefa){    
 
@@ -31,7 +32,7 @@ function insereTarefaNaPagina(tarefa){
 tarefas.forEach(insereTarefaNaPagina);
 
 //Exercicio 2
-incluirTarefaEl.addEventListener('click', e => {
+function adicionaTarefa(e){
     const nomeTarefaEl = document.querySelector('#nova-tarefa-nome');
     const categoriaTarefaEl = document.querySelector('#nova-tarefa-categoria');
 
@@ -46,10 +47,12 @@ incluirTarefaEl.addEventListener('click', e => {
 
     nomeTarefaEl.value = '';
     nomeTarefaEl.focus();
-});
+}
+
+incluirTarefaEl.addEventListener('click', adicionaTarefa);
 
 //Exercicio 3
-filtroCategoriaEl.addEventListener('change', e => {
+function filtraTarefas(e){
 
     let tarefasList = document.querySelectorAll('.item-tarefa');
 
@@ -64,4 +67,13 @@ filtroCategoriaEl.addEventListener('change', e => {
             tarefaEl.classList.add('retido-no-filtro');            
         }
     }        
-});
+}
+
+filtroCategoriaEl.addEventListener('change', filtraTarefas);
+
+//Exercicio 4
+novaTarefaNomeEl.addEventListener('keyup', e => {
+    if(e.key === 'Enter'){
+        adicionaTarefa(e);
+    }
+})

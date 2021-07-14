@@ -33,6 +33,9 @@ tarefas.forEach(insereTarefaNaPagina);
 
 //Exercicio 2
 function adicionaTarefa(e){
+
+    console.log('chemei');
+
     const nomeTarefaEl = document.querySelector('#nova-tarefa-nome');
     const categoriaTarefaEl = document.querySelector('#nova-tarefa-categoria');
 
@@ -76,4 +79,4 @@ novaTarefaNomeEl.addEventListener('keyup', e => {
     if(e.key === 'Enter'){
         adicionaTarefa(e);
     }
-})
+});

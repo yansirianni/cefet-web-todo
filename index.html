@@ -41,6 +41,21 @@
     </div>
   </main>
 
+  <script src="https://unpkg.com/blip-chat-widget" type="text/javascript">
+  </script>
+  <script>
+      (function () {
+          window.onload = function () {
+              new BlipChat()
+              .withAppKey('Y2FsY3VsYWRvcmFkZWFkZXJlbmNpYTpkMTE5N2FlZi05ZjUxLTQ0OWMtOWMwNC1hNTc1MGQzY2Q1Mjk=')
+              .withButton({"color":"#24b4eb","icon":""})
+              .withCustomCommonUrl('https://chat.blip.ai/')
+              .build();
+          }
+      })();
+  </script>
+                                  
+
   <script src="tarefas.js"></script>
 </body>
 
